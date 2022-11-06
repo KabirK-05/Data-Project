@@ -5,6 +5,7 @@ import math
 
 #main tree
 result = [[1]]
+graphPosition = [0,0]
 
 def generateTriangle(numRows: int):
 	# list of lists containing rows
@@ -35,13 +36,13 @@ def generateTriangle(numRows: int):
 
 		result.append(emptyRow)
 
-	resultCopy = result
 
 
 #traverse given result and start guessing 
 def traverse():
 	nodePosition = 0
-	graphPosition = [0,0]
+	global graphPosition
+	
 	x,y = graphPosition[0], graphPosition[1]
 	#mine points
 	points = {4:-20,6:-15,8:-10,9:-5}
@@ -91,7 +92,9 @@ for i in range(iterations):
 	traverseResult = traverse()
 	traverseResult += 10
 	totalPoints += traverseResult
-	if traverseResult > 0:
+	x,y = graphPosition
+
+	if x == 10:
 		wins += 1
 	else:
 		lose += 1
@@ -123,12 +126,3 @@ print("Number of wins: ",wins, "Number of losses: ",lose)
 print("expected value: ", totalPoints/iterations)
 
 print("Player 1 Wins: ", p1, "Player 2 Wins: ", p2)
-
-
-
-
-
-
-
-
-
