@@ -99,8 +99,14 @@ csvCounter = 0
 #simulating if player made it to the end:
 for i in range(iterations):
 	totalTraverseResult = traverse()
-	traverseResult = totalTraverseResult[1]
+
+	if totalTraverseResult[1] != 0:
+		traverseResult = totalTraverseResult[1]
+	else:
+		traverseResult = totalTraverseResult[2]
+
 	traverseResult += 10
+
 	totalPoints += traverseResult
 	x,y = graphPosition
 
@@ -137,7 +143,7 @@ for i in range(iterations):
 print("Number of trials: ", iterations)
 
 print("Number of wins (single player): ",wins, "Number of losses: ",lose)
-print("expected value: ", totalPoints/iterations)
+print("Expected value: ", totalPoints/iterations)
 
 print("Player 1 Wins: ", p1, "Player 2 Wins: ", p2)
 
