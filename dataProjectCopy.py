@@ -12,7 +12,6 @@ graphPosition = [0,0]
 def generateTriangle(numRows: int):
 	# list of lists containing rows
 	global result
-	global resultCopy
 
 	for i in range(numRows-1):
 		#to make next row, make temp list with 0's on ends and tails to add
