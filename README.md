@@ -16,7 +16,7 @@ In this case the player made it to the end 1,482 times out of 10,000 which is 14
 
 Taking into account the buy in price to play the game, the expected number of points a player will win is -2.47.
 
-To showcase this is a 50-50 chance random game in beating someone if playing with others, the program 
+To showcase our game has a 1/n chance in beating someone if playing with n other people, the program 
 simulated 2 players against each other. Player 1 won 4,966 times compared to player 2's 5,034.
 This is almost exactly 50-50 relative to each other. 
 
