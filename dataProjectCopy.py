@@ -109,8 +109,9 @@ for i in range(iterations):
 	else:
 		lose += 1
 
-	if csvCounter <= 35:
+	if csvCounter <= 50:
 		data.append(totalTraverseResult)
+		csvCounter += 1
 
 p1 = 0
 p2 = 0
