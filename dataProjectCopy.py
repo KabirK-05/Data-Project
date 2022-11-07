@@ -1,7 +1,6 @@
 # build pascals triangle and use it to create graph
 # use random variable to traverse down with random left or right direction
 import random 
-import math
 import csv
 
 #main tree
