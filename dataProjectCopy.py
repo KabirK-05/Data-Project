@@ -2,10 +2,12 @@
 # use random variable to traverse down with random left or right direction
 import random 
 import math
+import csv
 
 #main tree
 result = [[1]]
 graphPosition = [0,0]
+
 
 def generateTriangle(numRows: int):
 	# list of lists containing rows
@@ -70,12 +72,15 @@ def traverse():
 
 		if result[x][y] == 0:
 			lossPoints = points[x]
-			return lossPoints 
+			numberSpins = f"{i} spins -> mine"
+			returnList = [numberSpins, lossPoints, 0, 'L'] 
+			return returnList 
 
 	#store vector coordinates in terms of main result
 	# if they made it to the end, return the last value
 	finalResult = result[x][y]
-	return finalPoints[finalResult]
+	returnList = ["Success", 0, finalPoints[finalResult], 'W']
+	return returnList
 
 
 wins = 0
@@ -86,6 +91,10 @@ totalPoints = 0
 #run simulation "iteration" number of times
 generateTriangle(11)
 iterations = 10000
+
+#csv data
+header = ["Trials", "Cost", "PROFIT", "Win or Lose"]
+data = []
 
 #simulating if player made it to the end:
 for i in range(iterations):
@@ -122,7 +131,17 @@ for i in range(iterations):
 
 print("Number of trials: ", iterations)
 
-print("Number of wins: ",wins, "Number of losses: ",lose)
+print("Number of wins (single player): ",wins, "Number of losses: ",lose)
 print("expected value: ", totalPoints/iterations)
 
 print("Player 1 Wins: ", p1, "Player 2 Wins: ", p2)
+
+
+with open('dataProject.csv', 'w', encoding='UTF8', newline='') as f:
+	writer = csv.writer(f)
+
+	# write the header
+	writer.writerow(header)
+
+	# write multiple rows
+	writer.writerows(data)
