@@ -94,10 +94,12 @@ iterations = 10000
 #csv data
 header = ["Trials", "Cost", "PROFIT", "Win or Lose"]
 data = []
+csvCounter = 0
 
 #simulating if player made it to the end:
 for i in range(iterations):
-	traverseResult = traverse()
+	totalTraverseResult = traverse()
+	traverseResult = totalTraverseResult[1]
 	traverseResult += 10
 	totalPoints += traverseResult
 	x,y = graphPosition
@@ -106,6 +108,9 @@ for i in range(iterations):
 		wins += 1
 	else:
 		lose += 1
+
+	if csvCounter <= 35:
+		data.append(totalTraverseResult)
 
 p1 = 0
 p2 = 0
